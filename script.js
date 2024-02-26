@@ -30,7 +30,12 @@ function updateTurn() {
 }
 
 function playerMove(cellIndex) {
+   
+    if (!currentPlayer || isGameOver()) {
+        return; 
+    }
     audio.play()
+
     if (currentPlayer && board[cellIndex] === '') {
         board[cellIndex] = currentPlayer;
         document.getElementsByClassName('cell')[cellIndex].innerText = currentPlayer;
